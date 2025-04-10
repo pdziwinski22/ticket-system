@@ -58,9 +58,9 @@ export default function AuthForm() {
 
                 const data = await response.json();
 
-                if (response.ok) {
+                if (response.ok && data.token) {
                     localStorage.setItem("token", data.token);
-                    window.location.href = "/dashboard"; // Przekierowanie do aplikacji
+                    window.location.href = "/dashboard"; // Przekierowanie po zalogowaniu
                 } else {
                     setError(data.message || "Nieprawidłowe dane logowania.");
                 }
